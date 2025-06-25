@@ -1,0 +1,66 @@
+---
+description: Defines the architecture, UI/UX rules, and AI integration patterns for building the MVP of a blog writing platform using Cursor AI. This rule ensures consistent use of React + Tailwind stack, clean modular code, and structured development flow across all features, especially the Markdown editor and AI assistant.
+globs: 
+alwaysApply: false
+---
+📜 Cursor AI Rulebook for `blogforge` - AI-Powered Blog Writing Platform
+
+🧠 General Principles
+- You are the developer assistant. Do not write docs unless asked.
+- Use React + Vite + Tailwind CSS as the base stack.
+- Code must be clean, modular, and production-ready.
+- Avoid placeholders like "// TODO" - always provide functional boilerplate.
+
+🧱 Project Structure
+- Pages → src/pages/
+- Components → src/components/
+- Utilities (like localStorage helpers) → src/utils/
+- Routing is managed in App.jsx using react-router-dom.
+
+🧑‍💻 Code Quality Rules
+- Use functional components and React Hooks only.
+- Use Tailwind CSS only for styling  no inline styles or CSS modules.
+- Write clean JSX, avoid deeply nested code in JSX.
+- Reuse logic with custom hooks or utility functions.
+- Component and hook names must be descriptive and self-explanatory.
+
+🧪 Development Flow
+1. Every feature must include a UI component, logic handling, and Tailwind styling.
+2. AI Assistant features must:
+   - Have prompt input
+   - Show response output
+   - Use a mock or real backend endpoint (/api/suggest)
+
+🤖 AI Assistant Panel (“Ask Sage”)
+- Should take the current blog content + prompt from the user.
+- Send them to a backend endpoint.
+- Display AI response clearly with the option to insert or copy it.
+
+🧩 MVP Core Features (must be done before extras)
+- BlogEditor with:
+  - Title input
+  - Markdown editor
+  - Live preview
+  - Ask Sage panel (AI assistant)
+  - Save to localStorage
+- Dashboard:
+  - List saved blogs
+  - Edit/Delete options
+
+🧪 Naming Conventions
+- Component files: PascalCase.jsx
+- Functions/hooks: camelCase.js
+- Folder names: lowercase plural (e.g., pages, components, utils)
+- Tailwind utility classes for all styling
+
+🚫 Do Not:
+- Do not use class-based components
+- Do not use jQuery or non-React packages unnecessarily
+- Do not store blogs only in state  persist to localStorage
+- Do not generate random content unless the user triggers it
+- Do not leave console.logs in production output
+
+✅ Goal
+Build a clean, modern blog-writing platform on localhost with AI support — ready to integrate into the Frameworkx platform later.
+
+
