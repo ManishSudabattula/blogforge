@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -13,6 +13,23 @@ export default function BlogEditor() {
   const [editValue, setEditValue] = useState("");
   const [blogContent, setBlogContent] = useState("");
   const editorRef = useRef(null);
+
+  // Load saved blogs on mount
+  useEffect(() => {
+    const stored = localStorage.getItem("blogs");
+    if (stored) {
+      try {
+        setBlogs(JSON.parse(stored));
+      } catch (_) {
+        console.error("Failed to parse stored blogs");
+      }
+    }
+  }, []);
+
+  // Persist blogs whenever they change
+  useEffect(() => {
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+  }, [blogs]);
 
   // Update/remove helpers
   const updateTree = (arr, id, cb) =>
